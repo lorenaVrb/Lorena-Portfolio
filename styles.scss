@@ -1,0 +1,229 @@
+//Variables
+$dark: #191719;
+$light: #bcbaba;
+$green: #00aaa3;
+$single-border: 1px solid $green;
+$double-border: 2px double $green;
+
+@mixin green-hover {
+  color: $green;
+  text-shadow: 0px 0px 15px $light;
+}
+
+//Keyframes
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  background-color: $dark;
+  color: $light;
+}
+hr {
+  border: $double-border;
+}
+span {
+  color: $green;
+}
+#mode-toggler{
+  position: absolute;
+  top: 2.5%;
+  left: 2.5%;
+}
+a,
+.navbar-brand,
+.nav-link {
+  color: $light;
+}
+a:hover,
+.navbar-brand:hover,
+.nav-link:hover {
+  @include green-hover();
+}
+
+//Title Section
+.light{
+  background-color: $light;
+  color: $dark;
+}
+.title {
+  height: auto;
+  overflow-x: hidden;
+  animation: fadeIn 5s linear forwards;
+}
+.title-text {
+  padding: 20% 0 0 15%;
+}
+
+//Header
+.navbar {
+  border-bottom: $double-border;
+}
+.toggler {
+  color: $light;
+}
+#navbar-placeholder {
+  height: 0;
+}
+.navbar.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: $dark;
+  color: $light;
+  border-bottom: $double-border;
+}
+
+//About me
+.about-img img {
+  width: 15em;
+  box-shadow: 0px 0px 125px 5px $light, 0px 0px 55px 5px $green;
+  border-radius: 100%;
+}
+.about-text {
+  text-align: center;
+}
+
+.skill {
+  width: 5em;
+  font-size: 1.2em;
+}
+.skill:hover {
+  @include green-hover();
+}
+
+//Work
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 300px;
+  perspective: 1000px;
+  overflow: hidden;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+}
+
+.laptop {
+  background: url("images/laptop.jpg") no-repeat;
+  background-size: cover;
+}
+.app{
+  background: url("images/app.jpg") no-repeat;
+  background-size: cover;
+}
+.game{
+  background: url("images/game.jpg") no-repeat;
+  background-size: cover;
+}
+
+.flip-card-back {
+  background-color: $dark;
+  border: $single-border;
+  transform: rotateY(180deg);
+}
+
+/* Contacts */
+#contacts {
+  text-align: center;
+  justify-content: center;
+}
+.contacts-text {
+  max-width: 25em;
+  height: 10em;
+  margin: 0 auto;
+}
+.links {
+  color: $green;
+}
+.links:hover {
+  text-shadow: 0 0 5px $light;
+}
+.login {
+  max-width: 20em;
+  height: auto;
+  border: $single-border;
+  border-radius: 20px;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  margin: 2.5em auto;
+}
+label {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+input {
+  height: 2.5em;
+  border-radius: 20px;
+  padding: 0 1.5em;
+  border: $single-border;
+  background-color: transparent;
+  transition: all 0.5s ease;
+}
+textarea {
+  border-radius: 20px;
+  padding: 0 1.5em;
+  border: $single-border;
+  background-color: transparent;
+  transition: all 0.5s ease;
+  resize: vertical;
+}
+input:focus, textarea:focus{
+  color: $light;
+}
+.send-btn {
+  color: $light;
+  border: $single-border;
+}
+.login:hover,
+input:hover,
+input:focus,
+textarea:hover,
+textarea:focus,
+.send-btn:hover {
+  outline: 1px solid $light;
+  box-shadow: 0 0 10px $light, 0 0 15px $green;
+}
+
+//Footer
+.footer {
+  flex-direction: row;
+  list-style-type: none;
+  justify-content: center;
+  border-top: $double-border;
+}
+.footer a{
+  text-decoration: none;
+}
+
+
